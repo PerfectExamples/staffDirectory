@@ -1,0 +1,13 @@
+{
+
+	"baseURL": "http://localhost:8181",
+	"baseDomain": "localhost",
+
+	"postgresdbname": "perfect_testing",
+	"postgreshost": "localhost",
+	"postgresport": 5432,
+	"postgrespwd": "perfect",
+	"postgresuser": "perfect",
+	"httpport": 8181
+
+}
