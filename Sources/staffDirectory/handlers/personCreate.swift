@@ -27,7 +27,7 @@ extension Handlers {
 				}
 			}
 
-			let _ = try? response.setBody(json: ["id": person.id])
+			let _ = try? response.setBody(json: ["result": person.asDataDict()])
             response.completed()
         }
     }
