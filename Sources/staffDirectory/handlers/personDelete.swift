@@ -10,7 +10,7 @@
 import PerfectHTTP
 
 extension Handlers {
-    /// A sample comment for API docs
+    /// API endpoint for handling the deletion of a record
     static func personDelete(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
