@@ -55,4 +55,14 @@ class Person: SQLiteStORM {
         return rows
     }
 
+
+	public func fromDict(_ this: [String: Any]) {
+		firstname = this["firstname"] as? String ?? ""
+		lastname = this["lastname"] as? String ?? ""
+		email = this["email"] as? String ?? ""
+		phone = this["phone"] as? String ?? ""
+		address = this["address"] as? String ?? ""
+	}
+
+
 }
