@@ -8,11 +8,11 @@
 //  Modified by Clingon: https://github.com/iamjono/clingon
 //
 import PerfectLib
-import PostgresStORM
+import SQLiteStORM
 import StORM
 
 /// A sample comment for API docs
-class Person: PostgresStORM {
+class Person: SQLiteStORM {
 
     // Properties
     /// A sample comment for API docs

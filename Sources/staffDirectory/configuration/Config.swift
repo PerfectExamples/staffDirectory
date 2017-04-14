@@ -19,7 +19,6 @@
 
 import PerfectLib
 import JSONConfig
-import PostgresStORM
 
 struct AppCredentials {
 	var clientid = ""
@@ -44,11 +43,11 @@ func config() {
 
 
 			// For ORM
-			PostgresConnector.host        = dict["postgreshost"] as! String
-			PostgresConnector.username    = dict["postgresuser"] as! String
-			PostgresConnector.password    = dict["postgrespwd"] as! String
-			PostgresConnector.database    = dict["postgresdbname"] as! String
-			PostgresConnector.port        = dict["postgresport"] as! Int
+//			PostgresConnector.host        = dict["postgreshost"] as! String
+//			PostgresConnector.username    = dict["postgresuser"] as! String
+//			PostgresConnector.password    = dict["postgrespwd"] as! String
+//			PostgresConnector.database    = dict["postgresdbname"] as! String
+//			PostgresConnector.port        = dict["postgresport"] as! Int
 
 			// For Sessions
 //			PostgresSessionConnector.host = PostgresConnector.host
