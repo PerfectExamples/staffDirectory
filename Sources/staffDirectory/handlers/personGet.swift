@@ -10,7 +10,7 @@
 import PerfectHTTP
 
 extension Handlers {
-    /// A sample comment for API docs
+    /// API endpoint for handling the fetch of a record, or a list
     static func personGet(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
