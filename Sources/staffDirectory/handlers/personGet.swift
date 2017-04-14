@@ -23,7 +23,7 @@ extension Handlers {
 			if people.id > 0 {
 				do {
 					try people.get()
-					let _ = try? response.setBody(json: ["id": people.id, "firstname": people.firstname])
+					let _ = try? response.setBody(json: people.asDataDict())
 				} catch {
 					print(error)
 				}
@@ -36,7 +36,7 @@ extension Handlers {
 
 				var data = [String:Any]()
 				for obj in people.rows() {
-					data["\(obj.id)"] = ["firstname":obj.firstname, "lastname": obj.lastname]
+					data["\(obj.id)"] = obj.asDataDict()
 				}
 				let _ = try? response.setBody(json: ["data": data])
 			}
