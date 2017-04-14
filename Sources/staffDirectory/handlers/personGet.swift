@@ -14,7 +14,32 @@ extension Handlers {
     static func personGet(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
-        let _ = try? response.setBody(json: ["error": "Handler personGet not implemented"])
+
+			let people = Person()
+
+			if let id = request.urlVariables["id"] {
+				people.id = Int(id) ?? 0
+			}
+			if people.id > 0 {
+				do {
+					try people.get()
+					let _ = try? response.setBody(json: ["id": people.id, "firstname": people.firstname])
+				} catch {
+					print(error)
+				}
+			} else {
+				do {
+					try people.findAll()
+				} catch {
+					print(error)
+				}
+
+				var data = [String:Any]()
+				for obj in people.rows() {
+					data["\(obj.id)"] = ["firstname":obj.firstname, "lastname": obj.lastname]
+				}
+				let _ = try? response.setBody(json: ["data": data])
+			}
             response.completed()
         }
     }

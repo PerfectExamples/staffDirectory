@@ -14,7 +14,23 @@ extension Handlers {
     static func personDelete(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
-        let _ = try? response.setBody(json: ["error": "Handler personDelete not implemented"])
+
+			let people = Person()
+
+			if let id = request.urlVariables["id"] {
+				people.id = Int(id) ?? 0
+			}
+			if people.id > 0 {
+				do {
+					try people.delete()
+					let _ = try? response.setBody(json: ["error": "none"])
+				} catch {
+					print(error)
+				}
+			} else {
+				let _ = try? response.setBody(json: ["error": "error!"])
+			}
+
             response.completed()
         }
     }

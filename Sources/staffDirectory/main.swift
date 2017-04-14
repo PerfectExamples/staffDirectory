@@ -22,6 +22,9 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectRequestLogger
 import PerfectLogger
+import SQLiteStORM
+
+SQLiteConnector.db = "./staffdb"
 
 
 var HTTPport = 8181

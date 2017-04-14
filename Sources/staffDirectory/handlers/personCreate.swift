@@ -14,7 +14,20 @@ extension Handlers {
     static func personCreate(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
-        let _ = try? response.setBody(json: ["error": "Handler personCreate not implemented"])
+
+			let person = Person()
+
+			if let data = request.postBodyString {
+				do {
+					let obj = try data.jsonDecode() as? [String:Any]
+					person.firstname = obj?["firstname"] as? String ?? ""
+					try person.save()
+				} catch {
+					print(error)
+				}
+			}
+
+			let _ = try? response.setBody(json: ["id": person.id])
             response.completed()
         }
     }

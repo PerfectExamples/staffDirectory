@@ -14,7 +14,28 @@ extension Handlers {
     static func personUpdate(data: [String:Any]) throws -> RequestHandler {
         return {
         request, response in
-        let _ = try? response.setBody(json: ["error": "Handler personUpdate not implemented"])
+
+			let people = Person()
+
+			if let id = request.urlVariables["id"] {
+				people.id = Int(id) ?? 0
+			}
+			if people.id > 0 {
+				do {
+					try people.get()
+					if let data = request.postBodyString {
+						let obj = try data.jsonDecode() as? [String:Any]
+						people.firstname = obj?["firstname"] as? String ?? ""
+					}
+					try people.save()
+					let _ = try? response.setBody(json: ["error": "none"])
+				} catch {
+					print(error)
+				}
+			} else {
+				let _ = try? response.setBody(json: ["error": "error!"])
+			}
+
             response.completed()
         }
     }
