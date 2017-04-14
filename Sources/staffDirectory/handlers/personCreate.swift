@@ -25,11 +25,7 @@ extension Handlers {
 					let obj = try data.jsonDecode() as? [String:Any]
 
 					// Set properties
-					person.firstname	= obj?["firstname"] as? String ?? ""
-					person.lastname		= obj?["lastname"] as? String ?? ""
-					person.email		= obj?["email"] as? String ?? ""
-					person.address		= obj?["address"] as? String ?? ""
-					person.phone		= obj?["phone"] as? String ?? ""
+					person.fromDict(obj ?? [String:Any]())
 
 					// Here, you would do your data validation steps.
 					// For example if you required any fields, test here prior to save, and handle errors gracefully
