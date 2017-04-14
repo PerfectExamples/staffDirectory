@@ -24,19 +24,19 @@ func mainRoutes() -> [[String: Any]] {
     var routes: [[String: Any]] = [[String: Any]]()
     routes.append(["method":"get", "uri":"/**", "handler":PerfectHTTPServer.HTTPHandler.staticFiles, "documentRoot":"./webroot","allowResponseFilters":true])
 
-    /// A sample comment for API docs
+    /// List all records
     routes.append(["method":"get", "uri":"/api/v1/person", "handler":Handlers.personGet])
 
-    /// A sample comment for API docs
+    /// Return specified detail record
     routes.append(["method":"get", "uri":"/api/v1/person/{id}", "handler":Handlers.personGet])
 
-    /// A sample comment for API docs
+    /// Create new record
     routes.append(["method":"post", "uri":"/api/v1/person", "handler":Handlers.personCreate])
 
-    /// A sample comment for API docs
+    /// Update specified record
     routes.append(["method":"patch", "uri":"/api/v1/person/{id}", "handler":Handlers.personUpdate])
 
-    /// A sample comment for API docs
+    /// Delete specified record
     routes.append(["method":"delete", "uri":"/api/v1/person/{id}", "handler":Handlers.personDelete])
 
     return routes
