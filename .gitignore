@@ -5,7 +5,9 @@
 ## Build generated
 build/
 DerivedData
-
+*.resolved
+staffdb
+*.txt
 ## Various settings
 *.pbxuser
 !default.pbxuser
